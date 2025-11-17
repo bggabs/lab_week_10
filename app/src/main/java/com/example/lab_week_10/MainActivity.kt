@@ -26,13 +26,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun prepareViewModel() {
-
-        // Observe LiveData
+        // Di Activity kita observe dengan 'this' sebagai LifecycleOwner
         viewModel.total.observe(this) { total ->
             updateText(total)
         }
 
-        // Button increment
+        // Tombol untuk increment, panggil method di ViewModel
         findViewById<Button>(R.id.button_increment).setOnClickListener {
             viewModel.incrementTotal()
         }
